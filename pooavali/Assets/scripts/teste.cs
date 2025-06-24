@@ -4,27 +4,23 @@ public class teste : MonoBehaviour
 {
     void Start()
     {
-        // Cria o Xama (personagem que cura)
-        Xama xama = new GameObject("Xama").AddComponent<Xama>();
-        xama.AtribuirNome("Sopro");
-        xama.DefinirTotem(Xama.Totens.ESPIRITOS);  // Define o totem para cura
-
-        // Cria outro personagem genérico para exemplo
+        Gunslinger gunslinger = new GameObject("Gunslinger").AddComponent<Gunslinger>();
+        gunslinger.AtribuirNome("pisi");
+        gunslinger.AtribuirAtaque(30);
+        gunslinger.AtribuirArma(Gunslinger.ArmaDoGunslinger.TIRORAPIDO);
+        
+        
+     
         Personagem personagem = new GameObject("Personagem").AddComponent<Personagem>();
-        personagem.AtribuirNome("Sol");
-        personagem.AtribuirEnergia(80);    // Precisa implementar esse método na Personagem
-        personagem.AtribuirAtaque(10);
-        personagem.AtribuirVelocidade(3);
+        personagem.AtribuirNome("poti");
+        personagem.AtribuirEnergia(87);   
+        personagem.AtribuirAtaque(11);
+        personagem.AtribuirVelocidade(6);
 
         Debug.Log("--- Combate Iniciado ---");
-        Debug.Log(xama.Nome() + " (Xamã) VS " + personagem.Nome());
-        Debug.Log("Totem do Xamã: " + xama.totemAtual);
-        Debug.Log("Cura realizada pelo Xamã: " + xama.RealizarCura());
-
-        // Aplicar cura no personagem
-        personagem.AtribuirAtaque(xama.RealizarCura());
-
-        Debug.Log(personagem.Nome() + " recebeu cura. Energia atual: " + personagem.AtribuirEnergia());
+        Debug.Log(gunslinger.Nome() + " (Gunslinger) VS " + personagem.Nome());
+        Debug.Log("Arma do Gunslinger: " + gunslinger.Arma());
+        Debug.Log(personagem.Nome() + " tem agora " + personagem.Energia() + " de energia.");
     }
 
     void Update()
